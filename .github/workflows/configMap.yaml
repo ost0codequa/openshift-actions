@@ -42,9 +42,7 @@ jobs:
             uses: redhat-actions/openshift-tools-installer@v1
             with:
               oc: 4
-          - name: Set OpenShift project
-            run: |
-              oc project organicgreentea-dev
+              
           - name: Login to Openshift
             uses: redhat-actions/oc-login@v1
             with: 
