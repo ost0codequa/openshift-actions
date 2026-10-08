@@ -53,9 +53,11 @@ jobs:
 
           
           - name: Create or update ConfigMap
-            run: | 
-              kubectl create configmap image-config \
-               --from-file='.github/workflows/deployment.png' | kubectl apply -f - 
+            run: |
+                kubectl create configmap image-config \
+                --from-file='.github/workflows/deployment.png' \
+                --dry-run=client \
+                -o yaml | kubectl apply -f -
                  
           - name: verify ConfigMap
             run: | 
